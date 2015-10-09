@@ -6,7 +6,7 @@ app.controller("MainController", ["$scope", "$http", function($scope, $http){
     $scope.mathSecondValue = 0;
     $scope.sendData = [];
 
-    $scope.mathExpression = 0;
+    $scope.mathExpression = "";
 
     //$scope.addButton = false;
     //$scope.subtractButton = false;
@@ -39,27 +39,27 @@ app.controller("MainController", ["$scope", "$http", function($scope, $http){
     };
 
     $scope.calculationAdd = function(){
-        $scope.mathExpression = 0;
+        $scope.mathExpression = "add";
         console.log($scope.addButton);
         $scope.sendData.push($scope.mathExpression);
 
     };
 
     $scope.calculationSubtract = function(){
-        $scope.mathExpression = 1;
+        $scope.mathExpression = "subtract";
         console.log($scope.subtractButton);
         $scope.sendData.push($scope.mathExpression);
 
     };
 
     $scope.calculationMultiply = function(){
-        $scope.mathExpression = 2;
+        $scope.mathExpression = "multiply";
         console.log($scope.multiplyButton);
         $scope.sendData.push($scope.mathExpression);
     };
 
     $scope.calculationDivide = function(){
-        $scope.mathExpression = 3;
+        $scope.mathExpression = "divide";
         console.log($scope.divisionButton);
         $scope.sendData.push($scope.mathExpression);
     };

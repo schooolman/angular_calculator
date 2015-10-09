@@ -13,13 +13,13 @@ router.post('/', function(req, res, next) {
   var mathTwo = results[2];
   var final = 0;
 
-  if(expression == 0){
+  if(expression == "add"){
     final = mathOne + mathTwo;
-  } else if(expression == 1) {
+  } else if(expression == "subtract") {
     final = mathOne - mathTwo;
-  } else if(expression == 2) {
+  } else if(expression == "multiply") {
     final = mathOne * mathTwo;
-  } else if(expression == 3) {
+  } else if(expression == "divide") {
     final = mathOne / mathTwo;
   }
 
