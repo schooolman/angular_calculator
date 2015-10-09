@@ -1,24 +1,25 @@
 extends layout
 
 block content
-  h1 Calcu....later!!
-  p Welcome to the angular powered server calculator
 
-  form(ng-submit="submit()")
-    p First Value: {{mathFirstValue}}
-    input.mathOne(type="number" ng-model="mathFirstValue")
-    br
-    p Second Value: {{mathSecondValue}}
-    input.mathTwo(type="number" ng-model="mathSecondValue")
-    br
-    input(type="submit" value="equals")
-
-  form
-    button.add(ng-click="calculationAdd()" ng-model="mathExpression") +
-    button.subtract(ng-click="calculationSubtract()" ng-model="mathExpression") -
-    button.multiply(ng-click="calculationMultiply()" ng-model="mathExpression") *
-    button.divide(ng-click="calculationDivide()" ng-model="mathExpression") /
-    br
+  div.mainContent
+    h1 Calcu....later
+    form.calculator(ng-submit="submit()")
+      p First Value: {{mathFirstValue}}
+      input.mathOne(type="number" ng-model="mathFirstValue")
+      br
+      p Second Value: {{mathSecondValue}}
+      input.mathTwo(type="number" ng-model="mathSecondValue")
+      br
+      button.add(type="button" ng-click="calculationAdd()" ng-model="mathExpression" ) +
+      button.subtract(type="button" ng-click="calculationSubtract()" ng-model="mathExpression") -
+      button.multiply(type="button" ng-click="calculationMultiply()" ng-model="mathExpression") *
+      button.divide(type="button" ng-click="calculationDivide()" ng-model="mathExpression") /
+      br
+      br
+      input.submitButton(type="submit" value="=")
+    div.show
+    p.theAnswer {{finalAnswer}}
 
 
 

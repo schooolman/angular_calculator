@@ -7,6 +7,7 @@ app.controller("MainController", ["$scope", "$http", function($scope, $http){
     $scope.sendData = [];
 
     $scope.mathExpression = "";
+    $scope.finalAnswer = 0;
 
     //$scope.addButton = false;
     //$scope.subtractButton = false;
@@ -31,8 +32,10 @@ app.controller("MainController", ["$scope", "$http", function($scope, $http){
         $http.post('/calculator', data).then(function (newdata){
                 console.log("calculator route");
                 console.log(newdata);
+                $scope.finalAnswer = newdata.data;
             }
         );
+        $scope.sendData = [];
 
         console.log($scope.sendData);
 
@@ -40,28 +43,47 @@ app.controller("MainController", ["$scope", "$http", function($scope, $http){
 
     $scope.calculationAdd = function(){
         $scope.mathExpression = "add";
-        console.log($scope.addButton);
-        $scope.sendData.push($scope.mathExpression);
+        //console.log($scope.addButton);
+        if($scope.sendData.length == 1){
+            $scope.sendData.pop();
+            $scope.sendData.push($scope.mathExpression);
+        }else{
+            $scope.sendData.push($scope.mathExpression);
+        }
 
     };
 
     $scope.calculationSubtract = function(){
         $scope.mathExpression = "subtract";
-        console.log($scope.subtractButton);
-        $scope.sendData.push($scope.mathExpression);
-
+        if($scope.sendData.length == 1){
+            $scope.sendData.pop();
+            $scope.sendData.push($scope.mathExpression);
+        }else {
+            console.log($scope.subtractButton);
+            $scope.sendData.push($scope.mathExpression);
+        }
     };
 
     $scope.calculationMultiply = function(){
         $scope.mathExpression = "multiply";
         console.log($scope.multiplyButton);
-        $scope.sendData.push($scope.mathExpression);
+        if($scope.sendData.length == 1){
+            $scope.sendData.pop();
+            $scope.sendData.push($scope.mathExpression);
+        }else {
+            $scope.sendData.push($scope.mathExpression);
+        }
     };
 
     $scope.calculationDivide = function(){
         $scope.mathExpression = "divide";
         console.log($scope.divisionButton);
-        $scope.sendData.push($scope.mathExpression);
+        if($scope.sendData.length == 1){
+            $scope.sendData.pop();
+            $scope.sendData.push($scope.mathExpression);
+        }else {
+            $scope.sendData.push($scope.mathExpression);
+        }
     };
 
 
